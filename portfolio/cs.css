@@ -1237,6 +1237,30 @@ section:nth-child(7) { animation-delay: 0.7s; }
     inset 0 0 0 1px rgba(255, 255, 255, 0.6);
 }
 
+.thank-you-container {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.success-icon {
+  color: #4CAF50;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.back-btn {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+.back-btn:hover {
+  background-color: #555;
+}
 
 
 

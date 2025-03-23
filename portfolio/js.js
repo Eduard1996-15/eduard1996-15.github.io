@@ -105,4 +105,18 @@
         resizeCanvas();
         createParticles();
         drawParticles();
+
+
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('enviado')) {
+      document.getElementById('successMessage').style.display = 'block';
+      // Ocultar el mensaje después de 5 segundos
+      setTimeout(function() {
+        document.getElementById('successMessage').style.display = 'none';
+        // Eliminar el parámetro de la URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }, 5000);
+    }
       });
