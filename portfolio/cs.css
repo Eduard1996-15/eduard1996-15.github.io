@@ -60,43 +60,8 @@ nav {
   letter-spacing: 1px;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-}
 
-.nav-links li {
-  margin-left: 1.5rem;
-  position: relative;
-}
 
-.nav-links a {
-  color: var(--white);
-  text-decoration: none;
-  transition: color 0.3s;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--accent-color);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
 
 .hero {
   height: 100vh;
@@ -883,37 +848,6 @@ section:nth-child(5) { animation-delay: 0.5s; }
 section:nth-child(6) { animation-delay: 0.6s; }
 section:nth-child(7) { animation-delay: 0.7s; }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-  
-  .timeline::after {
-    left: 31px;
-  }
-  
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-  
-  .timeline-item::after {
-    left: 21px;
-  }
-  
-  .right {
-    left: 0;
-  }
-  
-  .contact-container {
-    flex-direction: column;
-  }
-  
-  .nav-links {
-    display: none; 
-  }
-}
 
 @media (max-width: 480px) {
   .hero h1 {
@@ -1239,5 +1173,118 @@ section:nth-child(7) { animation-delay: 0.7s; }
 
 
 
+/* Estilo del botón hamburguesa */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--white);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* Estilo de los enlaces de navegación */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+.nav-links {
+  background-color: rgba(33, 33, 33, 0.9); /* Fondo translúcido */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+}
+
+.hamburger i {
+  transition: transform 0.3s ease;
+}
+
+.nav-links.active ~ .hamburger i {
+  transform: rotate(90deg); /* Rota el icono al abrir el menú */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* Oculta el menú por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color); /* Fondo del menú desplegable */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999; /* Asegura que el menú esté encima del contenido */
+  }
+
+  .nav-links.active {
+    display: flex; /* Muestra el menú cuando se activa */
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .nav-links a {
+    color: var(--white); /* Asegura que los enlaces sean visibles */
+    text-align: center;
+  }
+  .nav-links a {
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+}
 
 
+.education-image {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.education-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+  border: 2px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.education-image img:hover {
+  transform: scale(1.05);
+}
