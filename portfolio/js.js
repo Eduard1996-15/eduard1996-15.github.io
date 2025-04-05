@@ -10,6 +10,30 @@
       
   
       document.addEventListener('DOMContentLoaded', function() {
+        //presentacion
+
+        const text = `Hola bienvenidos! Soy Eduard un desarrollador Junior Full Stack .NET con experiencia de más de un año en la creación de aplicaciones web. 
+        Mi enfoque se centra en construir soluciones digitales funcionales que resuelvan problemas concretos y ofrezcan una buena experiencia de usuario.
+        
+        Con formación en Análisis de Tecnologías de la Información y Programación, trabajo con tecnologías modernas tanto en frontend como en backend, aplicando las metodologías nesesarias y buenas prácticas de desarrollo.
+        
+        Me gusta aprender y trabajar en equipo, tengo mucha curiosidad técnica y busco constantemente mejorar mis habilidades y mantenerme actualizado con las tendencias del desarrollo web.`;
+        
+            const typingElement = document.getElementById("typing-text");
+            let index = 0;
+        
+            function type() {
+              if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 35); // Velocidad de escritura 35ms por carácter)
+              }
+            }
+        type();
+          
+
+
+
 
         const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".nav-links");
@@ -112,5 +136,8 @@
         resizeCanvas();
         createParticles();
         drawParticles();
+
+
+        
         
       });

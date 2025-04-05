@@ -1210,6 +1210,28 @@ section:nth-child(7) { animation-delay: 0.7s; }
 }
 
 @media (max-width: 768px) {
+  .about-content {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: center; /* Centra los elementos */
+    text-align: center; /* Centra el texto */
+  }
+
+  .about-text {
+    order: 2; /* Mueve el texto debajo de la imagen */
+    margin-top: 1rem; /* Añade espacio entre la imagen y el texto */
+  }
+
+  .about-image {
+    order: 1; /* Mueve la imagen arriba */
+    margin-bottom: 1rem; /* Añade espacio entre la imagen y el texto */
+  }
+
+  .about-image img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+  }
   .hamburger {
     display: block;
   }
@@ -1287,4 +1309,172 @@ section:nth-child(7) { animation-delay: 0.7s; }
 
 .education-image img:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .timeline::after {
+    display: none; /* Oculta la línea central */
+  }
+
+  .timeline-item {
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 20px;
+    text-align: left; /* Alinea el texto a la izquierda */
+    position: relative;
+  }
+
+  .timeline-item::after {
+    display: none; /* Oculta los puntos de conexión */
+  }
+
+  .timeline-content {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .left, .right {
+    left: 0; /* Asegura que no haya desplazamiento */
+  }
+}.nav-links a {
+  display: inline-block; /* Para que se comporten como botones */
+  color: var(--white); /* Color del texto */
+  text-align: center;
+  text-decoration: none; /* Elimina el subrayado */
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem; /* Espaciado interno para parecer botones */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: transparent; /* Fondo transparente por defecto */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+}
+
+.nav-links a:hover {
+  background-color: var(--accent-color); /* Cambia el fondo al pasar el cursor */
+  color: var(--white); /* Asegura que el texto sea visible */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
+
+/* Colores originales para cada ícono */
+.skill-list li i.fa-html5 {
+  color: #e34c26 !important; /* Color de HTML5 */
+}
+
+.skill-list li i.fa-css3-alt {
+  color: #1572b6 !important; /* Color de CSS3 */
+}
+
+.skill-list li i.fa-js {
+  color: #f7df1e !important; /* Color de JavaScript */
+}
+
+.skill-list li i.fa-react {
+  color: #61dafb !important; /* Color de React */
+}
+
+.skill-list li i.fa-bootstrap {
+  color: #7952b3 !important; /* Color de Bootstrap */
+}
+
+.skill-list li i.fa-mobile-alt {
+  color: #4caf50 !important; /* Color para Responsive Design */
+}
+
+.skill-list li i.fa-microsoft {
+  color: #00a4ef !important; /* Color de .NET Core */
+}
+
+.skill-list li i.fa-code {
+  color: #5c6bc0 !important; /* Color de C# */
+}
+
+.skill-list li i.fa-server {
+  color: #ff5722 !important; /* Color de ASP.NET MVC */
+}
+
+.skill-list li i.fa-database {
+  color: #4caf50 !important; /* Color de bases de datos */
+}
+
+.skill-list li i.fa-network-wired {
+  color: #ff9800 !important; /* Color de API RESTful */
+}
+
+.skill-list li i.fa-key {
+  color: #607d8b !important; /* Color de JWT */
+}
+
+.skill-list li i.fa-git-alt {
+  color: #f05032 !important; /* Color de Git */
+}
+
+.skill-list li i.fa-laptop-code {
+  color: #2196f3 !important; /* Color de herramientas */
+}
+
+.skill-list li i.fa-envelope {
+  color: #ff5722 !important; /* Color de Postman */
+}
+
+.skill-list li i.fa-aws {
+  color: #ff9900 !important; /* Color de AWS */
+}
+
+.skill-list li i.fa-file-csv {
+  color: #4caf50 !important; /* Color de Excel/CSV */
+}
+
+.project-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-with-text i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-with-text span {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.icon-with-text i:hover {
+  transform: scale(1.2);
+  color: var(--accent-color);
+}
+
+.typing {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.2rem; /* Tamaño del texto */
+  white-space: pre-wrap; /* Permite saltos de línea */
+  overflow: hidden; /* Oculta el texto que aún no se ha escrito */
+  border-right: 2px solid var(--primary-color); /* Cursor de escritura */
+  animation: blink 0.7s step-end infinite; /* Parpadeo del cursor */
+}
+
+@keyframes blink {
+  from {
+    border-right-color: var(--primary-color);
+  }
+  to {
+    border-right-color: transparent;
+  }
 }
