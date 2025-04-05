@@ -26,7 +26,7 @@
               if (index < text.length) {
                 typingElement.textContent += text.charAt(index);
                 index++;
-                setTimeout(type, 25); // Velocidad de escritura 25ms por carácter)
+                setTimeout(type, 5); // Velocidad de escritura 25ms por carácter)
               }
             }
         type();
