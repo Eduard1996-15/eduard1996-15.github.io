@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eduard Suarez - Desarrollador Full Stack .NET</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="./cs.css">
-  
+  <link rel="stylesheet" href="./cs_simple.css">
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-      
         <div class="logo">Eduard Suarez</div>
         <button class="hamburger" aria-label="Abrir menú">
         <i class="fas fa-bars"></i>
@@ -30,29 +28,38 @@
     </div>
   </header>
 
-  <section id="inicio" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Desarrollador Full Stack NET</h1>
-        <p>Con gran pasion por el código, y En constante aprendizaje y crecimiento profesional</p>
-        <a href="#proyectos" class="btn">Ver proyectos</a>
+  <!-- Botones de navegación horizontal -->
+  <button class="scroll-arrow scroll-left" onclick="scrollHorizontal(-1)">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="scroll-arrow scroll-right" onclick="scrollHorizontal(1)">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div class="horizontal-container">
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Desarrollador Full Stack NET</h1>
+          <p>Con gran pasion por el código, y En constante aprendizaje y crecimiento profesional</p>
+          <a href="#proyectos" class="btn">Ver proyectos</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <section id="sobre-mi" class="about">
-    <div class="container">
-      <h2>Sobre mí</h2>
-      <div class="about-content">
-        <div class="about-text col-sm-12">
-          <p id="typing-text" class="typing"></p> 
-        </div>
-        <div class="about-image col-sm-12">
-          <img src="./foto/miPerfil.jpg" alt="Eduard">
+      <div class="container">
+        <h2>Sobre mí</h2>
+        <div class="about-content">
+          <div class="about-text col-sm-12">
+            <p id="typing-text" class="typing"></p> 
+          </div>
+          <div class="about-image col-sm-12">
+            <img src="./foto/miPerfil.jpg" alt="Eduard">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <section id="formacion" class="education">
     <div class="container">
@@ -400,51 +407,31 @@
           </div>
           
           <div class="contact-social">
-            <a href="https://github.com/Eduard1996-15?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/eduard-suarez-119597221" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <h4>Redes Sociales</h4>
+            <div class="social-links">
+              <a href="https://github.com/Eduard1996-15?tab=repositories" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/eduard-suarez-119597221" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
           </div>
-        </div>
-        
-        <div class="contact-form-container">
-          <h3>Envíame un mensaje</h3>
-          
-          <form action="https://formsubmit.co/edwardjunior49@gmail.com" method="POST">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Asunto</label>
-              <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <!-- Campos ocultos para configuración -->
-            <input type="hidden" name="_subject" value="Nuevo mensaje del portfolio">
-            <input type="hidden" name="_next" value="https://eduard1996-15.github.io/portfolio/gracias.html">
-            <input type="hidden" name="_captcha" value="false">
-            <button type="submit" class="btn">Enviar mensaje</button>
-          </form>
-          
-          
         </div>
       </div>
     </div>
   </section>
+
+  </div>
 
   <footer>
     <div class="container">
       <p>&copy; 2025 Eduard Suarez - Desarrollador Full Stack .NET</p>
     </div>
   </footer>
+  
   <canvas id="background-canvas"></canvas>
-  <script src="./js.js"></script>
+  <script src="./js_simple.js"></script>
 
 </body>
 </html>
