@@ -64,30 +64,46 @@ Me gusta aprender y trabajar en equipo, tengo mucha curiosidad técnica y busco 
         });
     }
 
+    // Cerrar menú al clicar un enlace (útil en móvil)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+    // Cerrar menú automáticamente al redimensionar a desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+    });
+
     // Efecto Matrix discreto en el background
     const canvas = document.getElementById('background-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
-        
+        // Ajustar tamaño del canvas
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        
+        // Ajustar columnas
         let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]<>?/|\\~`';
         chars = chars.split('');
-        
+        // Ajustar tamaño de fuente
         const fontSize = 12;
         const columns = canvas.width / fontSize;
-        
+        // Ajustar gotas
         let drops = [];
         for(let x = 0; x < columns; x++) {
             drops[x] = 1;
         }
-        
+        // Ajustar gotas
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fondo más sutil
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            ctx.fillStyle = 'rgba(0, 255, 0, 0.8)'; // Verde más brillante
+            ctx.fillStyle = 'rgba(30, 105, 30, 0.8)'; // Verde más brillante
             ctx.font = fontSize + 'px monospace';
             
             for(let i = 0; i < drops.length; i++) {
