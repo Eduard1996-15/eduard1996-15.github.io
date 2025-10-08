@@ -1,0 +1,1188 @@
+/* Variables con tema matrix */
+:root {
+  --primary-color: #00ff00; 
+  --primary-dark: #00cc00; 
+  --secondary-color: #0a0a0a; 
+  --accent-color: #00ff00;
+  --text-color: #00ff00;
+  --light-bg: #0a0a0a; 
+  --dark-gray: #1a1a1a; 
+  --white: #0a0a0a;
+  --card-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  --matrix-bg: #0a0a0a;
+  --matrix-border: #00ff00;
+  --header-height: 80px; /* altura del header en desktop, ajustable */
+  --footer-height: 48px; /* altura objetivo del footer (aprox doble de la línea de texto) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: #000000;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--matrix-bg);
+  overflow-y: auto; /* permitir scroll vertical normal */
+}
+
+/* Header con tema matrix */
+header {
+  background: rgba(10, 10, 10, 0.9);
+  color: var(--text-color);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 255, 0, 0.3);
+  border-bottom: 1px solid var(--matrix-border);
+  backdrop-filter: blur(10px);
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.nav-links a:hover {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: var(--primary-color);
+  border-color: var(--matrix-border);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Ocultar hamburger en desktop */
+.hamburger {
+  display: none;
+}
+
+/* Scroll horizontal */
+.horizontal-container {
+  display: flex;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-top: 0; /* header fijo gestionado por container heights */
+}
+
+section {
+  min-width: 100vw;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4rem;
+}
+
+/* En desktop, que cada sección ocupe la ventana restante (sin incluir header) */
+@media (min-width: 769px) {
+  section.skills {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  .skills-container {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .skill-category {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  section {
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    overflow: hidden; /* contenido con scroll interno manejará su propio overflow */
+  }
+
+  /* Secciones con contenido largo deben permitir scroll interno */
+  .projects .container,
+  .experience,
+  .education .container {
+    max-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reducir tamaño del footer en desktop */
+  footer {
+  padding: 0.4rem 0; /* reducido */
+  font-size: 0.9rem;
+  height: var(--footer-height);
+  line-height: calc(var(--footer-height));
+  position: relative;
+  }
+}
+
+/* Botones de navegación lateral */
+.scroll-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: var(--matrix-bg);
+  border: 2px solid var(--matrix-border);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.scroll-arrow:hover {
+  background: var(--matrix-bg);
+  color: var(--primary-color);
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-left {
+  left: 20px;
+}
+
+.scroll-right {
+  right: 20px;
+}
+
+/* Estilos originales de secciones */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-out;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--matrix-border);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 0, 0.6);
+  color: var(--primary-color);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.3);
+  color: var(--text-color);
+}
+
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: var(--primary-color);
+  padding: 0.8rem 1.8rem;
+  border: 2px solid var(--matrix-border);
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--primary-color);
+  color: var(--matrix-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+}
+
+/* About section */
+.about {
+  background: rgba(10, 10, 10, 0.1);
+  border-top: 1px solid var(--matrix-border);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  border: 3px solid var(--matrix-border);
+}
+
+/* Typing effect */
+.typing {
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  animation: blink 0.7s step-end infinite;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes blink {
+  from { border-right-color: var(--primary-color); }
+  to { border-right-color: transparent; }
+}
+
+/* Education section */
+.education {
+  background: rgba(10, 10, 10, 0.1);
+  border-top: 1px solid var(--matrix-border);
+}
+
+/* Scrollbar verde para la sección formación */
+.education-container::-webkit-scrollbar {
+  width: 8px;
+}
+.education-container::-webkit-scrollbar-track {
+  background: rgba(0, 255, 0, 0.1);
+  border-radius: 4px;
+}
+.education-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+.education-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+.education-item {
+  background: rgba(0, 255, 0, 0.02);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  border-left: 4px solid var(--primary-color);
+  border: 1px solid var(--matrix-border);
+}
+
+.education-image {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.education-image img {
+  max-width: 400px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  border: 2px solid var(--matrix-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.education-image img:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+  transform: scale(1.02);
+}
+
+/* Skills section */
+.skills {
+  background: rgba(10, 10, 10, 0.1);
+  border-top: 1px solid var(--matrix-border);
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-category {
+  background: rgba(0, 255, 0, 0.02);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--matrix-border);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.skill-list {
+  list-style: none;
+}
+
+.skill-list li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.skill-list li i {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+/* Projects */
+.projects {
+  background: rgba(10, 10, 10, 0.1);
+  border-top: 1px solid var(--matrix-border);
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.project-card {
+  background: rgba(0, 255, 0, 0.02);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 450px;
+  border: 1px solid var(--matrix-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.2);
+}
+
+.project-img {
+  height: 180px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--matrix-border);
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.project-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Experience - Estilo código backend */
+.experience {
+  background: rgba(10, 10, 10, 0.1);
+  color: var(--primary-color);
+  font-family: 'Courier New', monospace;
+  border-top: 1px solid var(--matrix-border);
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.experience h2 {
+  color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  background: rgba(10, 10, 10, 0.9);
+  padding: 1rem 0;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.experience h2::after {
+  background-color: var(--primary-color);
+}
+
+.timeline {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.timeline-item {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--matrix-border);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  position: relative;
+  font-family: 'Courier New', monospace;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item::before {
+  content: '// Experiencia Laboral';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #666;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.timeline-content h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content h3::before {
+  content: 'function ';
+  color: #ff6b6b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content h3::after {
+  content: '() {';
+  color: #64b5f6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content .date {
+  color: #ffeb3b;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content .date::before {
+  content: '/* ';
+  color: #666;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content .date::after {
+  content: ' */';
+  color: #666;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content p {
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline-content ul li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  position: relative;
+  padding-left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-content ul li::before {
+  content: '- ';
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.timeline-item::after {
+  content: '}';
+  display: block;
+  color: #64b5f6;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Scroll personalizado */
+.projects-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+  background: rgba(0, 255, 0, 0.1);
+  border-radius: 4px;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+.projects-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+/* Ajustes específicos para la sección de proyectos */
+.projects {
+  padding: 1rem 0;
+}
+
+.projects .container {
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Iconos más pequeños */
+.project-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.icon-with-text i {
+  font-size: 1rem;
+}
+
+.icon-with-text span {
+  font-size: 0.8rem;
+}
+
+/* Contact Section */
+.contact {
+  background: rgba(10, 10, 10, 0.1);
+  border-top: 1px solid var(--matrix-border);
+}
+  section.contact {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  .contact-container {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .contact-info {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 255, 0, 0.02);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  overflow: hidden;
+  padding: 3rem;
+  border: 1px solid var(--matrix-border);
+}
+
+.contact-info {
+  width: 100%;
+  background: transparent;
+  color: var(--text-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.contact-info h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.contact-method {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid var(--matrix-border);
+}
+
+.contact-method:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.contact-method i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-right: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover i {
+  transform: scale(1.2);
+}
+
+.contact-method-content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.contact-method-content a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.contact-method-content a:hover {
+  color: var(--primary-color);
+}
+
+.contact-social {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--matrix-border);
+}
+
+.contact-social h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  transition: all 0.3s;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.05);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid var(--matrix-border);
+}
+
+.social-links a:hover {
+  color: var(--matrix-bg);
+  background: var(--primary-color);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+}
+
+/* Section titles */
+section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Footer (ajustado) */
+footer {
+  background: rgba(10, 10, 10, 0.9);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.6rem 0;
+  position: relative;
+  width: 100%;
+  border-top: 1px solid var(--matrix-border);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+@media (min-width: 992px) {
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Desktop: permitir que el contenedor horizontal llegue hasta el fondo (debajo del footer fijo)
+   y reducir los márgenes finales para que las secciones queden pegadas al footer */
+@media (min-width: 992px) {
+  .horizontal-container {
+    height: calc(100vh - var(--header-height)); /* ya no restamos footer-height para evitar el hueco */
+  }
+
+  section {
+    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
+    overflow: auto; /* permitir scroll interno si el contenido excede */
+  }
+
+  /* Reducir cualquier espacio final que todavía quede */
+  .contact-container {
+    margin-bottom: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  #experiencia > div {
+    margin-bottom: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  footer {
+    z-index: 9999; /* asegurar que el footer esté encima */
+  }
+}
+  #experiencia > div {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+/* Ocultar scrollbar horizontal grande y hacerlo sutil */
+.horizontal-container::-webkit-scrollbar {
+  display: none;
+}
+.horizontal-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Evitar que los cuadros lleguen a los bordes en desktop */
+@media (min-width: 769px) {
+  section {
+    padding-left: 3rem;
+    margin-bottom: 0; /* Eliminado el espacio entre .contact-container y el footer */
+    padding-bottom: 0.5rem;
+  }
+  section.contact {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Canvas background */
+#background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1;
+  background: transparent;
+}
+
+/* Asegurar que el background se vea en todas las secciones */
+section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Contenedores con transparencia para ver el matrix */
+.container {
+  background: transparent;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--matrix-border);
+}
+
+/* Desktop optimization para experiencia */
+@media (min-width: 769px) {
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+  }
+  
+  .timeline-item {
+    min-height: 450px;
+  }
+  
+  .experience {
+    max-height: calc(100vh - 120px);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px; /* ajustable si tu header es más alto o bajo */
+  }
+
+  section {
+  padding-bottom: 0 !important; /* Reducido padding-bottom si existe */
+  margin-bottom: 0 !important; /* Asegurado que no haya margen inferior */
+  }
+
+  /* Asegurar que los contenedores usen todo el ancho en móvil y tengan padding cómodo */
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  /* Evitar overflow horizontal en móvil por el contenedor horizontal */
+  .horizontal-container {
+    flex-direction: column;
+    height: calc(100vh - var(--header-height)); /* espacio para header fijo */
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .experience {
+    max-height: calc(100vh - 100px);
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .timeline-item {
+    padding: 1rem;
+    min-height: 300px;
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--matrix-bg);
+    box-shadow: 0 4px 6px rgba(0, 255, 0, 0.1);
+    padding: 1rem;
+    border-top: 1px solid var(--matrix-border);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-container {
+    padding: 2rem 1rem;
+  }
+
+  .contact-method {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-method i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .social-links {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .social-links a {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .scroll-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  /* El header es fijo; agregar espacio superior para evitar que tape el contenido */
+  /* No usar padding-top en el contenedor (evita sumar alturas que muestran la siguiente sección) */
+  .horizontal-container {
+    padding-top: 0;
+  }
+
+  /* Hacer que el footer se posicione naturalmente en móvil */
+  footer {
+    position: relative;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr;
+    max-height: 60vh;
+    gap: 1rem;
+  }
+
+  .project-card {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .timeline-item {
+    padding: 1rem;
+  }
+
+  .education-image img {
+    max-width: 300px;
+    max-height: 200px;
+  }
+}
+
+/* En móvil: permitir scroll interno por sección (como .experience) excepto Inicio y Contacto */
+@media (max-width: 768px) {
+  /* Aplicar a la mayoría de secciones: contenedor con altura limitada y scroll interno */
+  section:not(#inicio):not(#contacto) .container {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 0.5rem; /* espacio para scroll interno */
+  }
+
+  /* Asegurar que la sección proyectos ocupe toda la pantalla y permita scroll interno */
+  .projects .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-container {
+  max-height: none;
+  overflow-y: auto;
+    padding: 0.5rem;
+  }
+
+  /* Ajuste para evitar que el contenido se superponga al header fijo */
+  section:not(#inicio):not(#contacto) {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Cada sección ocupa la ventana (sin mostrar la siguiente) */
+  section:not(#inicio):not(#contacto) {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
+    overflow: hidden; /* el contenido interno controla su propio scroll */
+  }
+
+  /* Restaurar la sección de contacto a comportamiento original (no forzar altura ni ocultar overflow) */
+  #contacto, #contacto .container {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-top: 1rem;
+  }
+}

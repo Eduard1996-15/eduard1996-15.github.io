@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eduard Suarez - Desarrollador Full Stack .NET</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Bootstrap CSS para utilidades responsivas (no se cambia el contenido ni el diseño existente) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./cs_simple.css">
+</head>
+<body>
+  <header>
+  <div class="container container-fluid">
+      <nav>
+        <!--debe decir el nombre en bloque de codigo asi <Eduard/> -->
+
+  <a href="#inicio" class="logo"> Eduard Suarez </a>
+        <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+        </button>
+    <ul class="nav-links nav flex-column flex-md-row align-items-center">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#formacion">Formación</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Botones de navegación horizontal -->
+  <button class="scroll-arrow scroll-left" onclick="scrollHorizontal(-1)">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="scroll-arrow scroll-right" onclick="scrollHorizontal(1)">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <div class="horizontal-container">
+    <section id="inicio" class="hero">
+  <div class="container container-fluid">
+        <div class="hero-content">
+          <h1>Desarrollador Full Stack NET</h1>
+          <p>En constante aprendizaje y crecimiento profesional</p>
+          <a href="#proyectos" class="btn">Ver proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+  <div class="container container-fluid">
+        <h2>Sobre mí</h2>
+        <div class="about-content">
+          <div class="about-text col-sm-12">
+            <p id="typing-text" class="typing"></p> 
+          </div>
+          <div class="about-image col-sm-12">
+            <img src="./foto/miPerfil.jpg" alt="Eduard" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section id="formacion" class="education">
+  <div class="container container-fluid">
+      <h2>Formación Académica</h2>
+      <div class="education-container">
+        <div class="education-item">
+          <div class="education-date">Febrero 2021 - Febrero 2024</div>
+          <h3 class="education-title">Analista Programador</h3>
+          <div class="education-institution">Facultad de Ingeniería - Universidad ORT</div>
+          <p>La carrera forma profesionales técnicos especializados en el desarrollo de soluciones de software con capacidad de adaptación a la constante evolución de la tecnología.</p>
+          <p><strong>Promedio 88/100</strong></p>
+          <a href="https://fi.ort.edu.uy/analista-programador">Ver más...</a>
+          <!-- Imagen del diploma -->
+          <div class="education-image">
+            <img src="./foto/diploma.jpg" alt="Diploma Analista Programador" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="habilidades" class="skills">
+  <div class="container container-fluid">
+      <h2>Mis Habilidades y Conocimientos</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <ul class="skill-list">
+            <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+            <li><i class="fab fa-js"></i> JavaScript (ES6+)</li>
+            <li><i class="fab fa-react"></i> React.js</li>
+            <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+            <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <ul class="skill-list">
+            <li><i class="fab fa-microsoft"></i> .NET Core</li>
+            <li><i class="fas fa-code"></i> C#</li>
+            <li><i class="fas fa-server"></i> ASP.NET MVC</li>
+            <li><i class="fas fa-database"></i> Entity Framework</li>
+            <li><i class="fas fa-network-wired"></i> API RESTful</li>
+            <li><i class="fas fa-key"></i> JWT</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Bases de Datos</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-database"></i> SQL Server a Avanzado</li>
+            <li><i class="fas fa-database"></i> MySQL</li>
+            <li><i class="fas fa-project-diagram"></i> Diseño de Bases de datos</li>
+            <li><i class="fas fa-chart-line"></i> Optimización de consultas</li>
+            <li><i class="fas fa-table"></i> Indexación de tablas</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Herramientas & Otros</h3>
+          <ul class="skill-list">
+            <li><i class="fab fa-git-alt"></i> Git, GitHub, Gitea-Local</li>
+            <li><i class="fas fa-laptop-code"></i> Visual Studio, VC, Netbeans</li>
+            <li><i class="fas fa-envelope"></i> PostMan</li>
+            <li><i class="fab fa-aws"></i> Azure, AWS, IIS</li>
+            <li><i class="fas fa-file-csv"></i> Excel, CSV</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="proyectos" class="projects">
+  <div class="container container-fluid">
+      <h2>Mis Proyectos</h2>
+      <div class="projects-container">
+        <!-- Proyecto 1 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/SCU.png" alt="Proyecto 1" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>Sistema de Control de Usuarios</h3>
+            <p>Aplicación web robusta, escalable y completa para gestionar documentos, usuarios, solicitudes con múltiples comunicaciones con otras apps.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-bootstrap" title="Bootstrap"></i>
+                <span>Bootstrap</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-microsoft" title=".NET Core"></i>
+                <span>.NET Core</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-database" title="SQL Server"></i>
+                <span>SQL Server</span>
+              </div>
+              
+                <div class="icon-with-text">
+                  <i class="fas fa-code" title="C#"></i>
+                  <span>C#</span>
+                </div>
+            </div>
+            <a href="#" class="btn">Código confidencial del M.I.</a>
+          </div>
+        </div>
+  
+        <!-- Proyecto 2 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/asis.jpg" alt="Proyecto 2" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>App web móvil asistente de ventas con IA</h3>
+            <p>Aplicación web que asiste a vendedores en la presentación de productos a los clientes mediante la toma de fotografías de ropa y la búsqueda de prendas similares.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-react" title="React"></i>
+                <span>React</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-microsoft" title=".NET Core"></i>
+                <span>.NET Core</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-database" title="SQL Server"></i>
+                <span>SQL Server</span>
+              </div>
+            </div>
+            <a href="https://github.com/Eduard1996-15/asis/tree/main" class="btn">Ver Código</a>
+          </div>
+        </div>
+  
+        <!-- Proyecto 3 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/atencion-telefonica.png" alt="Proyecto 3" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>App Escritorio de Atención Telefónica</h3>
+            <p>App de escritorio con JAVA que modela e implementa un sistema de atención telefónica. Se enfoca en patrones de diseño combinados y código limpio.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-java" title="Java"></i>
+                <span>Java</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-project-diagram" title="MVC"></i>
+                <span>MVC</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-cogs" title="Patrones de diseño"></i>
+                <span>Patrones de diseño</span>
+              </div>
+            </div>
+            <a href="https://github.com/Eduard1996-15/Simulador-de-llamadas-JAVA" class="btn">Ver Código</a>
+          </div>
+        </div>
+  
+        <!-- Proyecto 4 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/vivero.jpg" alt="Proyecto 4" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>App Web Vivero de Plantas</h3>
+            <p>App web con CRUD completo de plantas, con listados y filtros. Incluye una API REST para consumir datos desde otras aplicaciones.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-microsoft" title=".NET Core"></i>
+                <span>.NET Core</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-database" title="SQL Server"></i>
+                <span>SQL Server</span>
+              </div>
+            </div>
+            <a href="https://github.com/Eduard1996-15/Obligatorio_1P3" class="btn">Ver Código</a>
+          </div>
+        </div>
+  
+        <!-- Proyecto 5 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/mapas.png" alt="Proyecto 5" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>App Móvil para Envíos</h3>
+            <p>App móvil que calcula distancias entre sucursales y muestra mapas interactivos. Desarrollada con CapacitorJS y Android Studio.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-map-marker-alt" title="Mapas"></i>
+                <span>Mapas</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-android" title="Android Studio"></i>
+                <span>Android Studio</span>
+              </div>
+            </div>
+            <a href="https://github.com/Eduard1996-15/ObligatorioDDM" class="btn">Ver Código</a>
+          </div>
+        </div>
+  
+        <!-- Proyecto 6 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/transaciones.jpeg" alt="Proyecto 6" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>App Web para Compras de Criptomonedas</h3>
+            <p>App web que permite realizar compras de criptomonedas, con estadísticas y sugerencias inteligentes. Desarrollada con React y NodeJS.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-react" title="React"></i>
+                <span>React</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-node-js" title="NodeJS"></i>
+                <span>NodeJS</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-chart-line" title="Estadísticas"></i>
+                <span>Estadísticas</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-database" title="SQL Server"></i>
+                <span>SQL Server</span>
+              </div>
+            </div>
+            <a href="https://github.com/Eduard1996-15/compraCriptomodedas-con-React" class="btn">Ver Código</a>
+          </div>
+        </div>
+
+        <!-- Proyecto 7 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/GCSMIME.jpg" alt="Proyecto 7" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>Generador de Certificados S/MIME</h3>
+            <p>Aplicación de escritorio intuitiva para la creación y gestión de certificados digitales S/MIME con Autoridad Certificadora integrada. Soporte offline completo con múltiples formatos de exportación.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-desktop" title="Electron"></i>
+                <span>Electron</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-certificate" title="X.509"></i>
+                <span>X.509</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-shield-alt" title="RSA"></i>
+                <span>RSA</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-file-export" title="PKCS#12"></i>
+                <span>PKCS#12</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-key" title="CA"></i>
+                <span>CA</span>
+              </div>
+            </div>
+            <a href="#" class="btn">Ver Código</a>
+          </div>
+        </div>
+
+        <!-- Proyecto 8 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="./foto/capacitaciones.jpg" alt="Proyecto 8" class="img-fluid mx-auto d-block">
+          </div>
+          <div class="project-info">
+            <h3>Sistema de Gestión de Capacitaciones</h3>
+            <p>Aplicación web empresarial para gestión integral de capacitaciones en producción. Incluye cargas masivas con Excel, solicitudes de capacitación, dashboard con filtros avanzados y reportes completos.</p>
+            <div class="project-icons">
+              <div class="icon-with-text">
+                <i class="fab fa-html5" title="HTML5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-js" title="JavaScript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fab fa-microsoft" title=".NET Core"></i>
+                <span>.NET Core</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-database" title="PostgreSQL"></i>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-file-excel" title="Excel"></i>
+                <span>Excel</span>
+              </div>
+              <div class="icon-with-text">
+                <i class="fas fa-chart-bar" title="Dashboard"></i>
+                <span>Dashboard</span>
+              </div>
+            </div>
+            <a href="#" class="btn">En Producción</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia" class="experience">
+  <div class="container container-fluid">
+      <h2>Mi Experiencia</h2>
+      <div class="timeline">
+        <!-- Experiencia 1 -->
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Administrador de sistemas y aplicaciones y desarrollador full stack .NET</h3>
+            <p class="date">Enero -2024 - Presente</p>
+            <p>Ministerio del Interior</p>
+            <ul>
+              <li>Desarrollo de aplicaciones web utilizando .NET Core </li>
+              <li>Implementación de autenticación JWT </li>
+              <li>Optimización de consultas SQL y diseño de bases de datos</li>
+              <li>Intermediario en múltiples proyectos tecnológicos</li>
+              <li>Soporte de nivel usuario en configuraciones e instalaciones Linux y Windows</li>
+              <li>Administración de sistemas, servidores y aplicaciones</li>
+              <li>Desarrollo full stack de aplicaciones</li>
+              <li>Testing y despliegue de aplicaciones</li>
+              <li>Documentacion y seguimiento de proyectos tecnológicos</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Experiencia 2 -->
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Desarrollo de una app de reconocimiento de imagenes en proyecto final de Carrera</h3>
+            <p class="date">2023</p>
+            <ul>
+              <li>Empresa ideadora Real</li>
+              <li>Desarrollo de app con ASP.NET Core que reconociera una prenda de ropa lo mas parecida posible</li>
+              <li>Implementación de Entity Framework para acceso a datos</li>
+              <li>Integración con IA ML.NET </li>
+              <li>primera experiencia en trato con clientes reales</li>
+              <li>toma de deciciones en riesgos inminentes</li>
+              <li>introdución a entrenamiento de una IA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+  <div class="container container-fluid">
+      <h2>Contacto</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Información Personal</h3>
+          
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-method-content">
+              <h4>Email</h4>
+              <a href="mailto:edwardjunior49@gmail.com">edwardjunior49@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <i class="fab fa-whatsapp"></i>
+            <div class="contact-method-content">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/+59895237487">+598 95 237 487</a>
+            </div>
+          </div>
+          
+          <div class="contact-social">
+            <h4>Redes Sociales</h4>
+            <div class="social-links">
+              <a href="https://github.com/Eduard1996-15?tab=repositories" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/eduard-suarez-119597221" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Eduard Suarez - Desarrollador Full Stack .NET</p>
+    </div>
+  </footer>
+  
+  <canvas id="background-canvas"></canvas>
+  <script src="./js_simple.js"></script>
+
+</body>
+</html>
