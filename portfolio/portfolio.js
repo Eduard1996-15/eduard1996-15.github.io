@@ -1,10 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".site-navigation");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
   const year = document.querySelector("[data-current-year]");
 
   if (year) {
     year.textContent = new Date().getFullYear();
+  }
+
+  if (themeToggle) {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const initialTheme = savedTheme === "dark" ? "dark" : "light";
+    const themeLabel = themeToggle.querySelector("span");
+    const themeIcon = themeToggle.querySelector("i");
+
+    const setTheme = (theme) => {
+      const isDark = theme === "dark";
+      document.documentElement.dataset.theme = theme;
+      themeColor.content = isDark ? "#101a2d" : "#eef2f6";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", `Activar tema ${isDark ? "claro" : "oscuro"}`);
+      themeLabel.textContent = `Tema ${isDark ? "claro" : "oscuro"}`;
+      themeIcon.className = `fa-solid ${isDark ? "fa-sun" : "fa-moon"}`;
+    };
+
+    setTheme(initialTheme);
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      setTheme(nextTheme);
+      localStorage.setItem("portfolio-theme", nextTheme);
+    });
   }
 
   if (!menuToggle || !navigation) {
